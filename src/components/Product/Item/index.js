@@ -12,7 +12,7 @@ const Item = ({ product }) => {
     setTodoList((prevState) => [...prevState, product]);
   };
   return (
-    <Card sx={{ maxWidth: 345, height: 250 }}>
+    <Card sx={{ maxWidth: 345, minHeight: 250 }}>
       <CardActionArea>
         <Wrapper justifyContent="flex-end">
           <div onClick={handleAddCart}>
@@ -25,11 +25,19 @@ const Item = ({ product }) => {
           image={product.image}
           alt="green iguana"
         />
-        <CardContent>
+        <CardContent
+          style={{
+            display: "flex",
+            height: "50px",
+            justifyContent: "space-between",
+            flexDirection: "column",
+            minHeight: "60px",
+          }}
+        >
           <Typography gutterBottom variant="p" component="div">
             {product.title}
           </Typography>
-          <Wrapper>
+          <Wrapper justifyContent="space-between">
             <Rating name="read-only" value={product.rating.rate} readOnly />
             <div>${product.price}</div>
           </Wrapper>
